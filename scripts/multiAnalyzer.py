@@ -4,9 +4,11 @@ import pandas as pd
 import json
 
 # Import csv list
-path = '../activity_data/' #relative path
+IMPORT_PATH = '../activity_data/' #relative path
+EXPORT_PATH = '../activity_data/jsonData.json'
+
 extension = 'csv'
-os.chdir(path)
+os.chdir(IMPORT_PATH)
 csvList = glob.glob('*.{}'.format(extension))
 
 setData = pd.DataFrame()
@@ -70,7 +72,7 @@ jsonData = jsonData.to_json(orient='split')
 jsonData = json.loads(jsonData)
 jsonData = json.dumps(jsonData, indent=4)
 
-with open('../activity_data/jsonData.json', 'w') as outfile:
+with open(EXPORT_PATH, 'w') as outfile:
     outfile.write(jsonData)
 
 

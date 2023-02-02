@@ -1,5 +1,5 @@
-activity_data/*
-sdk/*
+activity_data/
+sdk/
 
 # Logs
 logs
